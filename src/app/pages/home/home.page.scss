@@ -1,0 +1,62 @@
+.title {
+    height: 10rem;
+    margin-top: 30%;
+  }
+  
+  .buttons {
+    position: absolute;
+    width: 100%;
+    bottom : 20%
+  }
+  
+  .playButton {
+  
+    height: 3rem;
+    --border-radius: 500px;
+    width: fit-content;
+    --padding-start: 2rem;
+    --padding-end: 2rem;
+    margin: 0 auto;
+    font-family: Graphik, Helvetica, Arial;
+  }
+  
+  .helpButton {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 3rem;
+    opacity: 70%;
+    --border-radius: 10rem !important;
+    --padding-end: 1.25rem;
+  
+    ion-icon {
+  
+        margin-top: 0.2rem;
+        margin-right: 0.5rem;
+    }
+  }
+  
+    ion-content.background {
+      --background: url(../../../assets/image/gradient_017bd1.png);
+    }
+  
+  .custom {
+    background: linear-gradient(90deg, #ce55b0, #f34dac 12%, #f48e66 27%, #f0b832 38%, #b2ce37 54%, #63d7af 70%, #1cc2df 84%, #0580e6 94%, #ce55b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center; margin-top: 10%;
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: -2px;
+    font-family: Graphik, Helvetica, Arial;
+    font-weight: 600;
+    font-feature-settings: 'liga' 1;
+  
+  }
+  
+  

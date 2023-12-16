@@ -1,0 +1,87 @@
+<!-- src/app/mes-annonces/mes-annonces.page.html -->
+
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Mes Annonces
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-down"
+      pullingText="Tirez pour rafraîchir"
+      refreshingSpinner="circles"
+      refreshingText="Chargement...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="6" *ngFor="let annonce of mesAnnonces">
+        <ion-card>
+          <ion-card-header>
+            <ion-img id="image" [src]="annonce.imageUrl" alt="Image de l'annonce"></ion-img>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-card-title>{{ annonce.title }}</ion-card-title>
+            <ion-item>
+              <ion-textarea id="description" readonly>{{ annonce.description }}</ion-textarea>
+            </ion-item>
+            <ion-row>
+              <ion-col size="6" class="ion-text-start">
+                <ion-label>Catégorie :</ion-label>
+                {{ annonce.category }}
+              </ion-col>
+              <ion-col size="6" class="ion-text-end">
+                <ion-label>Prix :</ion-label>
+                {{ annonce.price | currency: 'USD':'symbol' }}
+              </ion-col>
+            </ion-row>
+            <ion-button [routerLink]="['/annonce-detail', annonce.id]" size="small">Plus de détails</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer style="margin-top: 50px;">
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button routerLink="/add-annonce">
+        <ion-icon class="grad" name="add-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button routerLink="/annonces">
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
+
+    <ion-tab-button class="comments" routerLink="/mes-annonces">
+        <ion-icon name="heart"></ion-icon>
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs"  >
+        <ion-icon name="notifications"></ion-icon>
+        <ion-badge color="danger" ></ion-badge>
+      </ion-tab-button>
+
+      <ion-tab-button routerLink="/profil">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>
+

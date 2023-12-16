@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/annonces"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Annonce</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="annonceForm" (ngSubmit)="addAnnonce()">
+    <ion-item>
+      <ion-input label="Title" formControlName="title" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Category" formControlName="category" required>
+        <ion-select-option value="Vehicule">Vehicule</ion-select-option>
+        <ion-select-option value="Immobilier">Immobilier</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea label="Description" formControlName="description" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Price" formControlName="price" type="number" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <input label="Importer une photo récente de votre Annonce" fill="clear" type="file" (change)="onFileChange($event)">
+    </ion-item>
+
+    <ion-button  expand="block" shape="round" class="btn-gradient"  [disabled]="!annonceForm.valid"  (click)="addAnnonce()">Add Annonce</ion-button>
+  </form>
+</ion-content>

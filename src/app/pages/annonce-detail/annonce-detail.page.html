@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="annonces"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Annoncement Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="annonce">
+    <ion-card-header>
+      {{ annonce.title }}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-img id="image" [src]="annonce.imageUrl" alt="Image de l'annonce"></ion-img>
+      <ion-item>
+        <ion-textarea id="description" readonly>{{ annonce.description }}</ion-textarea>
+      </ion-item>
+      <ion-row>
+        <ion-col size="6" class="ion-text-start">
+          <ion-label>Catégorie :</ion-label>
+          {{ annonce.category }}
+        </ion-col>
+        <ion-col size="6" class="ion-text-end">
+          <ion-label>Prix :</ion-label>
+          {{ annonce.price | currency: 'USD': 'symbol' }}
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
